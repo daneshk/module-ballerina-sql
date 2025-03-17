@@ -397,7 +397,7 @@ public class SQLDatasource {
             if (sqlDatasourceParams.options != null) {
                 BMap<BString, Object> optionMap = (BMap<BString, Object>) sqlDatasourceParams.options;
                 optionMap.entrySet().forEach(entry ->
-                        xaProperties.setProperty(entry.getKey().getValue(), entry.getValue().toString())
+                        xaProperties.putIfAbsent(entry.getKey().getValue(), entry.getValue())
                 );
             }
 
